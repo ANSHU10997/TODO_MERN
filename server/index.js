@@ -71,6 +71,7 @@ app.put("/tasks/:id", async (req, res) => {
   }
 });
 
+// Delete route to delete a task by ID
 app.delete("/tasks/:id", async (req, res) => {
   try {
     const taskId = req.params.id;
