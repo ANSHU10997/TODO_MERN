@@ -15,7 +15,7 @@ const TodoList = () => {
       document.getElementById("task-input").value = "";
       return;
     }
-    await axios.post("https://todo-mern-server-labkbqrsg-anshus-projects-172604fa.vercel.app/tasks", {
+    await axios.post("http://localhost:3001/tasks", {
       task: taskInput,
       isCompleted: false,
     });
@@ -32,14 +32,14 @@ const TodoList = () => {
   const handleSave = (index) => {
     const updatedTasks = [...tasks];
     try {
-      axios.put(`https://todo-mern-server-labkbqrsg-anshus-projects-172604fa.vercel.app/tasks/${tasks[index]?._id}`, {
+      axios.put(`http://localhost:3001/tasks/${tasks[index]?._id}`, {
         task: editedTaskText,
-        isCompleted: false
-      })
+        isCompleted: false,
+      });
     } catch (error) {
       console.log("Error", error);
     }
-    updatedTasks[index] =  { task: editedTaskText, isCompleted: false };
+    updatedTasks[index] = { task: editedTaskText, isCompleted: false };
     setTasks(updatedTasks);
     setEditIndex(null);
     setEditedTask("");
@@ -49,7 +49,7 @@ const TodoList = () => {
     const updatedTasks = tasks.filter((task, idx) => idx !== index);
     setTasks(updatedTasks);
     try {
-      axios.delete(`https://todo-mern-server-labkbqrsg-anshus-projects-172604fa.vercel.app/tasks/${tasks[index]?._id}`)
+      axios.delete(`http://localhost:3001/tasks/${tasks[index]?._id}`);
     } catch (error) {
       console.log("Error", error);
     }
@@ -57,7 +57,7 @@ const TodoList = () => {
 
   const getTasks = async () => {
     try {
-      const response = await axios.get("https://todo-mern-server-labkbqrsg-anshus-projects-172604fa.vercel.app/tasks");
+      const response = await axios.get("http://localhost:3001/tasks");
       setTasks(response.data);
       console.log(response.data);
     } catch (error) {
