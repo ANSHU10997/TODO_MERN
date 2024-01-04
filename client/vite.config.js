@@ -6,11 +6,7 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-<<<<<<< Updated upstream
       "/tasks": "https://todo-mern-list.rouge.app/tasks",
-=======
-      "/tasks": "https://todo-mern-list.vercel.app",
->>>>>>> Stashed changes
     },
   },
 });
