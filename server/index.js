@@ -20,7 +20,7 @@ const Task = mongoose.model("Task", taskSchema);
 
 // Middleware to parse JSON
 app.use(express.json());
-app.use(cors({origin:["todo-mern-list.vercel.app"],methods:["POST","GET","PUT","DELETE"],credentials:ture}));
+app.use(cors({origin:["todo-mern-list.vercel.app"],methods:["POST","GET","PUT","DELETE"],credentials:true}));
 
 // GET route to fetch all tasks
 app.get("/tasks", async (req, res) => {
