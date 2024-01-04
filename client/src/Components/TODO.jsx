@@ -15,7 +15,7 @@ const TodoList = () => {
       document.getElementById("task-input").value = "";
       return;
     }
-    await axios.post("/tasks", {
+    await axios.post("https://todo-mern-list.vercel.app/tasks", {
       task: taskInput,
       isCompleted: false,
     });
@@ -32,7 +32,7 @@ const TodoList = () => {
   const handleSave = (index) => {
     const updatedTasks = [...tasks];
     try {
-      axios.put(`/tasks/${tasks[index]?._id}`, {
+      axios.put(`https://todo-mern-list.vercel.app/tasks/${tasks[index]?._id}`, {
         task: editedTaskText,
         isCompleted: false,
       });
@@ -49,7 +49,7 @@ const TodoList = () => {
     const updatedTasks = tasks.filter((task, idx) => idx !== index);
     setTasks(updatedTasks);
     try {
-      axios.delete(`/tasks/${tasks[index]?._id}`);
+      axios.delete(`https://todo-mern-list.vercel.app/tasks/${tasks[index]?._id}`);
     } catch (error) {
       console.log("Error", error);
     }
@@ -57,7 +57,7 @@ const TodoList = () => {
 
   const getTasks = async () => {
     try {
-      const response = await axios.get("/tasks");
+      const response = await axios.get("https://todo-mern-list.vercel.app/tasks");
       setTasks(response.data);
       console.log(response.data);
     } catch (error) {
