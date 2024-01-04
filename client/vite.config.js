@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      "/tasks": "todo-mern-list.rouge.app",
+      "/tasks": "https://todo-mern-list.rouge.app",
     },
   },
 });
