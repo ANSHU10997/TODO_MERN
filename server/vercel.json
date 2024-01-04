@@ -6,7 +6,7 @@
     },
     "builds": [
       {
-        "src": "/dist/apps/api/main.js",
+        "src": "./index.js",
         "use": "@now/node"
       },
       {
