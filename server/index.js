@@ -22,7 +22,7 @@ const Task = mongoose.model("Task", taskSchema);
 app.use(express.json());
 app.use(
   cors({
-    origin: ["https://todo-mern-list.vercel.app"],
+    origin: *,
     methods: ["POST", "GET", "PUT", "DELETE"],
     credentials: true,
   })
