@@ -16,7 +16,7 @@ const Connection = () => {
     console.log("Database Disonnected ");
   });
   mongoose.connection.on("error", () => {
-    console.log("Error in Connecting to Dataase");
+    console.log("Error in Connecting to Database");
   });
 };
 
